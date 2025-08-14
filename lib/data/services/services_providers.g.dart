@@ -54,5 +54,53 @@ final class LocalStorageServiceProvider
 String _$localStorageServiceHash() =>
     r'6393dfa3b7044bce3761873180d69dc9438297b5';
 
+@ProviderFor(googleSignInService)
+const googleSignInServiceProvider = GoogleSignInServiceProvider._();
+
+final class GoogleSignInServiceProvider
+    extends
+        $FunctionalProvider<
+          GoogleSignInService,
+          GoogleSignInService,
+          GoogleSignInService
+        >
+    with $Provider<GoogleSignInService> {
+  const GoogleSignInServiceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'googleSignInServiceProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$googleSignInServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<GoogleSignInService> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  GoogleSignInService create(Ref ref) {
+    return googleSignInService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(GoogleSignInService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<GoogleSignInService>(value),
+    );
+  }
+}
+
+String _$googleSignInServiceHash() =>
+    r'72f616ec6ecce32376fba07999fbca173009cd02';
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

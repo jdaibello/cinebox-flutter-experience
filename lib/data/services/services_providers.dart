@@ -1,3 +1,5 @@
+import 'package:cinebox/data/services/google_signin/google_signin_service.dart';
+import 'package:cinebox/data/services/google_signin/google_signin_service_impl.dart';
 import 'package:cinebox/data/services/local_storage/local_storage_service.dart';
 import 'package:cinebox/data/services/local_storage/local_storage_service_impl.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -8,4 +10,9 @@ part 'services_providers.g.dart';
 @Riverpod(keepAlive: true)
 LocalStorageService localStorageService(Ref ref) {
   return LocalStorageServiceImpl(flutterSecureStorage: FlutterSecureStorage());
+}
+
+@riverpod
+GoogleSignInService googleSignInService(Ref ref) {
+  return GoogleSignInServiceImpl();
 }
