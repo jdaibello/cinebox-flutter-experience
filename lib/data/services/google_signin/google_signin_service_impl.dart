@@ -11,7 +11,7 @@ class GoogleSignInServiceImpl implements GoogleSignInService {
     try {
       final logged = await GoogleSignIn.instance.attemptLightweightAuthentication();
 
-      if (logged case GoogleSignInAccount(authentication: GoogleSignInAuthentication(idToken: final idToken?))) {
+      if (logged case GoogleSignInAccount(authentication: GoogleSignInAuthentication(:final idToken?))) {
         return Success(idToken);
       }
 

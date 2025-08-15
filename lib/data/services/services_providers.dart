@@ -7,12 +7,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'services_providers.g.dart';
 
-@Riverpod(keepAlive: true)
-LocalStorageService localStorageService(Ref ref) {
-  return LocalStorageServiceImpl(flutterSecureStorage: FlutterSecureStorage());
-}
-
 @riverpod
 GoogleSignInService googleSignInService(Ref ref) {
   return GoogleSignInServiceImpl();
+}
+
+@Riverpod(keepAlive: true)
+LocalStorageService localStorageService(Ref ref) {
+  return LocalStorageServiceImpl(flutterSecureStorage: FlutterSecureStorage());
 }

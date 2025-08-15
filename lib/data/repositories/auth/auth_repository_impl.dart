@@ -32,13 +32,13 @@ class AuthRepositoryImpl implements AuthRepository {
     final result = await _googleSignInService.signIn();
 
     switch (result) {
-      case Success<String>(value: final value):
+      case Success<String>(:final value):
         await _localStorageService.saveIdToken(value);
 
         //! Login in with the backend
 
         return successOfUnit();
-      case Failure<String>(error: final error):
+      case Failure<String>(:final error):
         log(
           'Error when signin in with Google',
           name: 'AuthRepository',
@@ -60,7 +60,7 @@ class AuthRepositoryImpl implements AuthRepository {
         switch (removeResult) {
           case Success<Unit>():
             return successOfUnit();
-          case Failure<Unit>(error: final error):
+          case Failure<Unit>(:final error):
             log(
               'Error when removing ID token',
               name: 'AuthRepository',
@@ -69,7 +69,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
             return Failure(error);
         }
-      case Failure<Unit>(error: final error):
+      case Failure<Unit>(:final error):
         return Failure(error);
     }
   }
